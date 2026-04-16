@@ -1,0 +1,36 @@
+// Prisma schema defines:
+// 1) generated client settings
+// 2) database connection
+// 3) your data models
+
+// Learn more: https://pris.ly/d/prisma-schema
+
+// `generator` tells Prisma what code to generate for your app.
+// This creates a Prisma Client you can import in TypeScript/JavaScript.
+generator client {
+  provider = "prisma-client-js"
+}
+
+// `datasource` defines which database Prisma connects to.
+// Prisma 7 reads the connection URL from `prisma.config.ts` (datasource.url),
+// so `url` is intentionally not set in this schema file.
+datasource db {
+  provider = "postgresql"
+}
+
+// Add your models below.
+
+// `id` is the primary key (`@id`) and is assigned automatically using
+// `autoincrement()` each time a new row is inserted.
+// `email` is a `String` field with a unique constraint (`@unique`), which
+// ensures no two users can share the same email address.
+// `name String?` means the field is optional (nullable in the database).
+// `createdAt` is set automatically on insert (`now()`) and maps to `created_at` in DB.
+// `updatedAt` is auto-updated by Prisma on changes and maps to `updated_at` in DB.
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt      @map("updated_at")
+}

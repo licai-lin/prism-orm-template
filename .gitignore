@@ -1,0 +1,40 @@
+node_modules
+dist
+# Keep environment variables out of version control
+.env
+.env.*
+!.env.example
+
+/src/generated/prisma
+
+# Ignore accidental TS transpile artifacts in source folders
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+src/**/*.d.ts.map
+prisma/**/*.js
+prisma/**/*.js.map
+prisma/**/*.d.ts
+prisma/**/*.d.ts.map
+prisma.config.js
+prisma.config.js.map
+prisma.config.d.ts
+prisma.config.d.ts.map
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+
+# Test output
+coverage
+
+# npm cache (if created in project)
+.npm
